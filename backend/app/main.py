@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import auth, users, movies
-from app.database import init_db
+from app.routes import movies
 
 app = FastAPI(title="D-VHS API")
 
@@ -13,12 +12,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
-@app.on_event("startup")
-def on_startup():
-    init_db()
-
-app.include_router(auth.router, prefix="/auth", tags=["auth"])
-app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(movies.router, prefix="/movies", tags=["movies"])
 app.include_router(movies.router, prefix="/movies", tags=["movies"])
