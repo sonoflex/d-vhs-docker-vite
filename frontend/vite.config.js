@@ -1,12 +1,9 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [vue()],
-  root: '/app',                // Root der App im Container
-  publicDir: '/app/public',    // Damit index.html und Assets gefunden werden
+  root: '.',       // root ist das aktuelle Verzeichnis
   server: {
-    host: '0.0.0.0',           // Lauschen auf allen Interfaces
-    port: 5173,
+    host: '0.0.0.0',
+    port: 5173
   }
-})
+});
